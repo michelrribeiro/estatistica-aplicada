@@ -51,7 +51,7 @@ eq = col1.text_input('Digite a equação de restrição e depois clique em Inser
 if col1.button('Inserir equação'):
     if eq and re.sub('[0-9A-Za-z|\ \-\+\=]', '', eq) == '':
         if eq in st.session_state.eqs:
-            st.sucess('Equação já inserida anteriormente.')
+            pass
         else:
             st.session_state.eqs.append(eq)
             st.success('Equação de restrição inserida com sucesso.')
@@ -65,15 +65,15 @@ ineq = col2.text_input('Digite a inequação de restrição e depois clique em I
 if col2.button('Inserir inequação'):
     if ineq and re.sub('[0-9A-Za-z\ \+\-\=\>\<]', '', ineq) == '':
         if ineq in st.session_state.ineqs:
-            st.sucess('Inequação já inserida anteriormente.')
+            pass
         else:
             st.session_state.ineqs.append(ineq)
             st.success('Inequação de restrição inserida com sucesso.')
     else:
         st.error('Erro ao inserir inequação.')
 
-col1.markdown('###### Confirme as equações antes de confirmar o processamento:')
-col2.markdown('###### Confirme as inequações antes de confirmar o processamento:')
+col1.markdown('###### Confirme as equações antes de iniciar o processamento:')
+col2.markdown('###### Confirme as inequações antes de iniciar o processamento:')
 
 if len(st.session_state.eqs) > 0:
     col1.markdown('Equações de igualdade aplicáveis ao problema:')
